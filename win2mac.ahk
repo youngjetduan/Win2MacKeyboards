@@ -110,9 +110,11 @@ $!#Down::Send("{ctrl down}{alt down}{Down}{alt up}{ctrl up}")
 
 $#Space::Send("{Ctrl Down}{LWin Down}{Space}{LWin Up}{Ctrl Up}")  
 
-; change size with wheel
-!WheelUp::Send("{WheelUp}")
-#WheelDown::Send("{WheelDown}")
+; interact with wheel
+
+!WheelUp::Send("{ctrl down}{WheelUp}{ctrl up}")
+!WheelDown::Send("{ctrl down}{WheelDown}{ctrl up}")
+!LButton::Send("{ctrl down}{LButton}{ctrl up}")
 
 ; Shortcuts in explorer context  
 
