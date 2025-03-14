@@ -108,6 +108,11 @@ $!#Down::Send("{ctrl down}{alt down}{Down}{alt up}{ctrl up}")
 !BS::Send("{LShift down}{Home}{LShift Up}{Del}")  
 #BS::Send("{LCtrl down}{BS}{LCtrl up}")  
 
+!Del::Send("{LShift down}{Del}{LShift Up}{Del}")  
+#Del::Send("{LCtrl down}{Del}{LCtrl up}")  
+
+!Enter::Send("{ctrl down}{Enter}{ctrl up}")
+
 $#Space::Send("{Ctrl Down}{LWin Down}{Space}{LWin Up}{Ctrl Up}")  
 
 ; interact with wheel
@@ -125,3 +130,22 @@ $#Space::Send("{Ctrl Down}{LWin Down}{Space}{LWin Up}{Ctrl Up}")
 
 	!BS::Send("{Delete}") ; delete selected files/directories
 #HotIf
+
+$CapsLock::
+{
+    if (KeyWait("CapsLock", "T0.3") = 0) { ; Timeout, 长按 CapsLock，切换英文大小写
+        if (GetKeyState("CapsLock", "T")) {
+            SetCapsLockState(false)  ; 使用布尔值 false 表示关闭
+        } else {
+            SetCapsLockState(true)   ; 使用布尔值 true 表示开启
+        }
+        KeyWait("CapsLock")  ; 等待 CapsLock 被释放
+    } else { ; 短按 CapsLock，发送 LShift 切换中英文输入法
+        if (GetKeyState("CapsLock", "T")) {
+            SetCapsLockState(false)
+        } else {
+            Send("{LShift}")
+        }
+    }
+    return
+}
