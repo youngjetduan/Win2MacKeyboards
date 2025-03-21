@@ -27,6 +27,7 @@ $!g::Send("^g") ; CMD+G: group in PowerPoint
 $!h::Send("^h") ; CMD+H: highlight  
 $!i::Send("^i") ; CMD+I: italic  
 $!j::Send("^j") ; CMD+J: open terminal in VSCode  
+$!k::Send("^k") ; CMD+K
 $!l::Send("^l") ; CMD+L: aligned by left  
 $!o::Send("^o") ; CMD+O: open  
 $!p::Send("^p") ; CMD+P: print  
